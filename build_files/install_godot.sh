@@ -3,22 +3,21 @@ set -euo pipefail
 
 GODOT_VERSION="4.6.2-stable"
 
-INSTALL_DIR="/opt/godot/${GODOT_VERSION}"
+BASE="/opt/godot/${GODOT_VERSION}"
+ARCHIVE_DIR="${BASE}/Godot_v${GODOT_VERSION}_mono_linux_x86_64"
 
-mkdir -p "$INSTALL_DIR"
+mkdir -p "$BASE"
 
 curl -L -o /tmp/godot.zip \
   "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_mono_linux_x86_64.zip"
 
-unzip /tmp/godot.zip -d "$INSTALL_DIR"
+unzip /tmp/godot.zip -d "$BASE"
 
-# Find the actual binary safely
-GODOT_BIN=$(find "$INSTALL_DIR" -type f -name "Godot_v*_mono_linux_x86_64")
+mv "${ARCHIVE_DIR}/Godot_v${GODOT_VERSION}_mono_linux.x86_64" \
+   "${BASE}/godot"
 
-mv "$GODOT_BIN" "$INSTALL_DIR/godot"
+chmod +x "${BASE}/godot"
 
-chmod +x "$INSTALL_DIR/godot"
-
-ln -sf "$INSTALL_DIR/godot" /usr/bin/godot
+ln -sf "${BASE}/godot" /usr/bin/godot
 
 rm -f /tmp/godot.zip
