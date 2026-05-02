@@ -14,10 +14,10 @@ curl -L -o /tmp/godot.zip \
 unzip /tmp/godot.zip -d "$BASE"
 
 mv "${ARCHIVE_DIR}/Godot_v${GODOT_VERSION}_mono_linux.x86_64" \
-   "${BASE}/godot"
+   "${ARCHIVE_DIR}/godot"
 
-chmod +x "${BASE}/godot"
+chmod +x "${ARCHIVE_DIR}/godot"
 
-ln -sf "${BASE}/godot" /usr/bin/godot
+ln -sf "${ARCHIVE_DIR}/godot" /usr/bin/godot
 
 rm -f /tmp/godot.zip
