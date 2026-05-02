@@ -10,7 +10,9 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y alacritty 
+dnf5 install -y \
+  alacritty \
+  dotnet-sdk
 
 # Use a COPR Example:
 #
@@ -18,6 +20,15 @@ dnf5 install -y alacritty
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+
+# install Godot
+install -Dm644 /ctx/icons/godot.png \
+  /usr/share/icons/hicolor/256x256/apps/godot.png
+  
+install -Dm644 /ctx/desktop/godot.desktop \
+  /usr/share/applications/godot.desktop
+  
+/ctx/install_godot.sh
 
 #### Example for enabling a System Unit File
 
