@@ -12,7 +12,12 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y \
   alacritty \
-  dotnet-sdk-8.0
+  dotnet-sdk-8.0 \
+  niri \
+  adw-gtk-theme \
+  nwg-look \
+  qt6ct \
+
 
 # Use a COPR Example:
 #
@@ -20,6 +25,12 @@ dnf5 install -y \
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+
+# Use Terra:
+dnf5 install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+dnf5 install noctalia-shell
+# Disable terra
+dnf5 remove terra-release
 
 # install Godot
 install -Dm644 /ctx/icons/godot.png \
