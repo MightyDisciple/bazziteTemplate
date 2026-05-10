@@ -24,7 +24,7 @@ dnf5 install -y \
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
-
+dnf5 -y --enable-repo=terra install noctalia-shell
 # install Godot
 install -Dm644 /ctx/icons/godot.png \
   /usr/share/icons/hicolor/256x256/apps/godot.png
