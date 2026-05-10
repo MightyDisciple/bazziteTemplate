@@ -14,8 +14,6 @@ dnf5 install -y \
   alacritty \
   dotnet-sdk-8.0 \
   niri \
-  adw-gtk-theme \
-  nwg-look \
   qt6ct \
 
 
