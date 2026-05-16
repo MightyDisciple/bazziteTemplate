@@ -15,8 +15,7 @@ dnf5 install -y \
   dotnet-sdk-8.0 \
   niri \
   qt6ct \
-  fuse \
-  fuse-libs
+  xdg-desktop-portal-gnome
 
 # Use a COPR Example:
 #
