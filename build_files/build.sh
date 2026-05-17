@@ -15,7 +15,7 @@ dnf5 install -y \
   dotnet-sdk-8.0 \
   niri \
   qt6ct \
-  xdg-desktop-portal-gnome
+  refind
 
 # Use a COPR Example:
 #
