@@ -15,7 +15,7 @@ dnf5 install -y \
   dotnet-sdk-8.0 \
   niri \
   qt6ct \
-  refind
+  rEFInd
 
 # Use a COPR Example:
 #
