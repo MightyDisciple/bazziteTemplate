@@ -5,7 +5,10 @@ set -ouex pipefail
 
 # install unity repo
 install -Dm644 /ctx/repo/unityhub.repo \
-  /usr/etc/yum.repos.d/unityhub.repo
+  /etc/yum.repos.d/unityhub.repo
+
+dnf5 clean all
+dnf5 makecache
 
 ### Install packages
 
