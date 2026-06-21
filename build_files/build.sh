@@ -29,7 +29,7 @@ dnf5 -y --enable-repo=terra install \
     noctalia-shell
 
 # install unity 
-install -Dm644 /ctx/unityhub.repo \
+install -Dm644 /ctx/repo/unityhub.repo \
   /usr/etc/yum.repos.d/unityhub.repo
 
 # install Godot
