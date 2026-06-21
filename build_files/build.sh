@@ -2,6 +2,11 @@
 
 set -ouex pipefail
 
+
+# install unity repo
+install -Dm644 /ctx/repo/unityhub.repo \
+  /usr/etc/yum.repos.d/unityhub.repo
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -27,10 +32,6 @@ dnf5 install -y \
 # dnf5 -y copr disable ublue-os/staging
 dnf5 -y --enable-repo=terra install \
     noctalia-shell
-
-# install unity 
-install -Dm644 /ctx/repo/unityhub.repo \
-  /usr/etc/yum.repos.d/unityhub.repo
 
 # install Godot
 install -Dm644 /ctx/icons/godot.png \
