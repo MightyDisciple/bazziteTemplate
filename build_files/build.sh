@@ -16,7 +16,8 @@ dnf5 install -y \
   niri \
   qt6ct \
   rEFInd \
-  rEFInd-tools
+  rEFInd-tools \
+  unityhub
 
 # Use a COPR Example:
 #
@@ -26,6 +27,10 @@ dnf5 install -y \
 # dnf5 -y copr disable ublue-os/staging
 dnf5 -y --enable-repo=terra install \
     noctalia-shell
+
+# install unity 
+install -Dm644 /ctx/unityhub.repo \
+  /usr/etc/yum.repos.d/unityhub.repo
 
 # install Godot
 install -Dm644 /ctx/icons/godot.png \
