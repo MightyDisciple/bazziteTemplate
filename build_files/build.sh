@@ -27,6 +27,17 @@ dnf5 install -y \
   rEFInd-tools \
   unityhub
 
+# Docker Engine and the `docker compose` plugin come from Docker's Fedora repository.
+curl -fsSL https://download.docker.com/linux/fedora/docker-ce.repo \
+  -o /etc/yum.repos.d/docker-ce.repo
+
+dnf5 install -y \
+  containerd.io \
+  docker-buildx-plugin \
+  docker-ce \
+  docker-ce-cli \
+  docker-compose-plugin
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
@@ -48,3 +59,4 @@ install -Dm644 /ctx/desktop/godot.desktop \
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+systemctl enable docker.service
